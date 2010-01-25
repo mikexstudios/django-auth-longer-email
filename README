@@ -1,0 +1,28 @@
+django-auth-longer-email by Michael Huynh (mike@mikexstudios.com)
+
+This is a very simple (one file that is __init__.py)... 
+whose purpose is to dynamically patch django...
+in order to increase the length of the email field for auth.User to 254 char.
+
+Why?
+----
+Currently, the email field has max_length = 75. However, the standards for
+email addresses state that email length can be up to 254 characters.
+Therefore, there will be cases where django's auth.User cannot save a valid
+email address.
+
+(Specifically, this app to address facebook's very long proxy email
+addresses.) 
+
+How to use
+----------
+1. Install this app through pip, or copy the app to your django project
+   directory.
+
+2. Edit settings.py and under INSTALLED_APPS, add 'django_auth_longer_email'
+   before 'django.contrib.auth'.
+
+3. If the auth_user table already exists, drop it (or rename it for now).
+
+4. Run manage.py syncdb to recreate the auth_user table, this time with the
+   longer email field.
