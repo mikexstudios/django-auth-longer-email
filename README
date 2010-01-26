@@ -4,6 +4,10 @@ This is a very simple (one file that is __init__.py)...
 whose purpose is to dynamically patch django...
 in order to increase the length of the email field for auth.User to 254 char.
 
+Tested:
+------
+Only on Django 1.1.1.
+
 Why?
 ----
 Currently, the email field has max_length = 75. However, the standards for
@@ -13,6 +17,10 @@ email address.
 
 (Specifically, this app to address facebook's very long proxy email
 addresses.) 
+Edit: Ironically, like a half-hour after I finished writing this app, RPX
+decided not to send the email field from facebook logins anymore.
+Nevertheless, an email field length of 75 seems way too low.
+
 
 How to use
 ----------
